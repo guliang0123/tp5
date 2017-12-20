@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	{volist name='userlist' id='vo'}
+		{$vo.uid <1000 ? $vo.uid : 'uid太大'}
+	{/volist}
+</body>
+
+<h2><a href="{:url('index/one','id=12')}">获取单个用户</a></h2>
+</html>
