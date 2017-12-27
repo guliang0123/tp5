@@ -8,7 +8,7 @@ class User extends Model
 {
 	public function userList()
 	{
-		$list = DB::name('users')->where('status',1)->limit(300)->order('uid', 'asc')->select();
+		$list = DB::name('users')->where('status',1)->paginate(10);
 		return $list;
 	}
 

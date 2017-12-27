@@ -5,10 +5,21 @@
 	<title>Document</title>
 </head>
 <body>
-	{volist name='userlist' id='vo'}
-		{$vo.uid <1000 ? $vo.uid : 'uid太大'}
-	{/volist}
+	<table>
+		<tr>
+			<td>{$oneuser['uid']}</td>
+			<td>{$oneuser['username']}</td>
+		</tr>
+		<tr>
+			<td>{$oneuser['balance']}</td>
+			<td>{$oneuser['groupid']}</td>
+		</tr>
+		<tr>
+			<td>{$oneuser['dateline']}</td>
+			<td>{$oneuser['status']}</td>
+		</tr>
+		
+	</table>
 </body>
 
-<h2><a href="{:url('index/one','id=12')}">获取单个用户</a></h2>
 </html>

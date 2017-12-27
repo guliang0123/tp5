@@ -17,5 +17,7 @@ return [
         ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
         ':name' => ['index/hello', ['method' => 'post']],
     ],
-
+    '/'=>'@index/index/index',
+    'index'=>'@index/index/index',
+    'one/:id'=>'@index/index/one/' //one/12 传递id为12
 ];

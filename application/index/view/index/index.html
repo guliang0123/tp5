@@ -3,12 +3,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<style>
+		/*分页*/
+		.pagination li {display: inline-block;margin-right: -1px;padding: 5px;border: 1px solid #e2e2e2;min-width: 20px;text-align: center;color:#000}
+		.pagination li.active {background: #009688;color: #fff;border: 1px solid #009688;}
+		.pagination li a {display: block;text-align: center;text-decoration: none;color:#000}
+	</style>
+
 </head>
 <body>
+<table border="1" cellpadding="0" cellspacing="0" text-align="center" align="center">
 	{volist name='userlist' id='vo'}
-		{$vo.uid <1000 ? $vo.uid : 'uid太大'}
+	<!--{$vo.uid <100000000 ? $vo.uid : 'uid太大'}-->
+
+	<tr>
+		<td>{$vo.uid}</td>
+		<td>{$vo.username}</td>
+		<td>{$vo.realname}</td>
+		<td>{$vo.dateline}</td>
+		<td>{$vo.lastloginip}</td>
+	</tr>
 	{/volist}
-</body>
+
+</table>
+
+	{$userlist->render()}
 
 <h2><a href="{:url('index/one','id=12')}">获取单个用户</a></h2>
+
+</body>
+
+
+
+
+
 </html>
