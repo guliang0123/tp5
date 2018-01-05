@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		/*分页*/
+		.pagination li {display: inline-block;margin-right: -1px;padding: 5px;border: 1px solid #e2e2e2;min-width: 20px;text-align: center;color:#000}
+		.pagination li.active {background: #009688;color: #fff;border: 1px solid #009688;}
+		.pagination li a {display: block;text-align: center;text-decoration: none;color:#000}
+	</style>
+
+</head>
+<body>
+
+<div class="vue_ajax">
+	<h2 v-if="ok"><a href="" id="aa">获取数据</a></h2>
+<table border="1" cellpadding="0" cellspacing="0" text-align="center" align="center">
+	<tr v-for="item in posts">
+		<td>{{ item.uid }}</td>
+		<td>{{ item.username }}</td>
+	</tr>
+</table>
+</div>
+</body>
+<script src="__JS__/vue.min.js"></script>
+<script src="__JS__/vue-resource.min.js"></script>
+<script src="__JS__/jquery-3.2.1.min.js"></script>
+<!--{load file='__JS__/vue.min.js'}-->
+<!--{load file='__JS__/vue-resource.min.js'}-->
+<script>
+
+//     ajax 获取数据
+    var vm2=new Vue({
+        el: '.vue_ajax',
+        data: {
+            posts:'',
+			ok:false,
+
+        },
+        // 页面加载的时候会自动执行ready
+        created: function() {
+            var self = this;
+            // 等同于jquery的$.ajax
+            var url = "{:url('index/index3')}";
+            self.$http.get(url).then(function (response) {
+                self.posts = response.data;
+            })
+        }
+    });
+
+</script>
+
+</html>
